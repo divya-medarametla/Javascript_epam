@@ -1,0 +1,305 @@
+<html>
+<head>
+<title>Java Script Events</title>
+<style type="text/css">
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("images/login.jpg");
+
+  min-height: 850px;
+ 
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+   margin-top:3%;
+  margin-left:34%;
+  max-width: 400px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+<script type="text/javascript">
+function validate()
+{
+ var a = document.f.fname.value;
+ var b = document.f.pwd.value;
+  var c = document.f.cpwd.value;
+var d = document.f.age.value;
+var e = document.f.mob.value;
+ if(a=="")
+ {
+   alert("Fullname filed should not be empty!!!");
+   document.f.fname.focus();
+   return false;
+ }
+ if(a.length<5)
+ {
+   alert("Fullname should be more than or equal to 5 characters!!!");
+   document.f.fname.focus();
+   return false;
+ }
+  if(b.length==0)
+ {
+   alert("Password filed should not be empty!!!");
+   document.f.pwd.focus();
+   return false;
+ }
+ if(b.length<5)
+ {
+   alert("Password should be more than or equal to 5 characters!!!");
+   document.f.pwd.focus();
+   return false;
+ }
+  if(c!=b)
+ {
+   alert("Password and Confirm Password must be equal!!!");
+   document.f.cpwd.focus();
+   return false;
+ }
+  if(d=="")
+  {
+   alert("Age filed should not be empty!!!");
+   document.f.age.focus();
+   return false;
+ }
+ if(isNaN(d))
+  {
+   alert("Age filed must be a number!!!");
+   document.f.age.focus();
+   return false;
+ }
+ if(d<18)
+  {
+   alert("Age should be greater than or eqaul to 18!!!");
+   document.f.age.focus();
+   return false;
+ }
+ if(e=="")
+  {
+   alert("Mobile No filed should not be empty!!!");
+   document.f.mob.focus();
+   return false;
+ }
+ if(isNaN(e))
+  {
+   alert("Mobile no must be a number!!!");
+   document.f.mob.focus();
+   return false;
+ }
+ if(e.length!=10)
+  {
+   alert("Mobile no contains 10 digits only!!!");
+   document.f.mob.focus();
+   return false;
+ }
+ if(e.charAt(0)!='7' && e.charAt(0)!='8' && e.charAt(0)!='9')
+ {
+   alert("Mobile no must be started with 7 or 8 or 9!!!");
+   document.f.mob.focus();
+   return false;
+ }
+ if(!(document.f.rules.checked))
+ {
+   alert("You must select terms and conditions");
+   return false;
+ }
+}
+ function validateemail()
+ {
+ var email = document.getElementById("email").value;
+ if(email.length==0)
+ {
+  document.getElementById("emailerr").innerHTML="Please Enter Email";
+ }
+ else
+ {
+  document.getElementById("emailerr").innerHTML="";
+ 
+ }
+ var atpos = email.indexOf('@');
+
+ var dotpos = email.lastIndexOf('.');
+ 
+ 
+ if(atpos<5 || dotpos-atpos<5)
+ {
+  document.getElementById("emailerr").innerHTML="Please Enter Valid Email";
+ }
+ else
+ {
+  document.getElementById("emailerr").innerHTML="";
+ 
+ }
+ 
+ }
+function validateuname()
+{
+ var a = document.getElementById("uname").value;
+ if(a.length==0)
+ {
+   document.getElementById("err1").innerHTML = "Please Enter Username";
+ document.getElementById("err1").style.color="blue";
+ document.getElementById("err1").style.fontSize=20;
+
+ }
+ else
+ {
+  document.getElementById("err1").innerHTML = "";
+document.f.fname.focus();
+ }
+}
+function validatepwd()
+{
+ var b = document.getElementById("pwd").value;
+ if(b.length==0)
+ {
+   document.getElementById("err2").innerHTML = "Please Enter password";
+ document.getElementById("err2").style.color="blue";
+ document.getElementById("err2").style.fontSize=20;
+
+ }
+ else
+ {
+  document.getElementById("err2").innerHTML = "";
+document.f.pwd.focus();
+ }
+}
+function validatecpwd()
+{
+ var c = document.getElementById("cpwd").value;
+ if(c.length==0)
+ {
+   document.getElementById("err3").innerHTML = "Please confirm password";
+ document.getElementById("err3").style.color="blue";
+ document.getElementById("err3").style.fontSize=20;
+
+ }
+ else
+ {
+  document.getElementById("err3").innerHTML = "";
+document.f.cpwd.focus();
+ }
+}
+function validateage()
+{
+ var d = document.getElementById("age").value;
+ if(d.length==0)
+ {
+   document.getElementById("err4").innerHTML = "Please enter age";
+ document.getElementById("err4").style.color="blue";
+ document.getElementById("err4").style.fontSize=20;
+
+ }
+ else
+ {
+  document.getElementById("err4").innerHTML = "";
+document.f.age.focus();
+ }
+}
+function validatemob()
+{
+ var e = document.getElementById("mob").value;
+ if(e.length==0)
+ {
+   document.getElementById("err5").innerHTML = "Please enter mobile no";
+ document.getElementById("err5").style.color="blue";
+ document.getElementById("err5").style.fontSize=20;
+
+ }
+ else
+ {
+  document.getElementById("err4").innerHTML = "";
+document.f.mob.focus();
+ }
+}
+</script>
+</head>
+<body>
+<div class="bg-img">
+<br>
+<form name="f" action="successs.html" method="post" onsubmit="return validate()" class="container">
+<h1>SignUp</h1>
+
+    <label for="User Name"><b>User Name</b></label>
+<input type="text" name="fname" id="uname" placeholder="Enter Username" onchange="validateuname()"><span id="err1"></span>
+
+ <label for="User Type"><b>User Type</b></label>
+<select name="type">
+  <option value=" ">--Select--</option>
+  <option value="Leader">Leader</option>
+ <option value="Manager">Manager</option>
+<option value="Leader">Employee</option>
+</select><br><br>
+ <label for="Mail Id"><b>Mail Id</b></label>
+<input type="text" id="email" placeholder="Enter mail id" onchange="validateemail()">
+  <span id="emailerr"></span>
+ 
+<label for="User Id"><b>User Id</b></label>
+
+<input type="text" name="uid" placeholder="Enter user id" size="15">
+<label for="Password"><b>Password</b></label>
+<input type="password" name="pwd" id="pwd" placeholder="Enter Password" onchange="validatepwd()"><span id="err2"></span>
+<label for="Confirm Password"><b>Confirm Password</b></label>
+<input type="password" name="cpwd" placeholder="Enter Confirm Password" onchange="validatecpwd()"><span id="err3"></span> 
+<label for="mobile"><b>Mobile No</b></label>
+
+<input type="text" name="mobile" placeholder="Enter mobile no" size="15">
+
+
+
+<button type="submit" value="signup" name="signup" class="btn">SignUp</button>&nbsp;
+&nbsp;
+<center>go back to <a href="skilling project.html">home</a></center>
+
+
+</form>
+</div>
+
+
+</body> 
+</html>
